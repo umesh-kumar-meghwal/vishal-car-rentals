@@ -74,6 +74,138 @@ details[open]>div{animation:rise .4s both}
     </head>
     <body class="bg-navy text-white antialiased">
 
+
+
+<section class="cars-section">
+    <h2>Our Available Cars</h2>
+
+    <div id="cars-container" class="cars-grid">
+        <p>Loading cars...</p>
+    </div>
+</section>
+
+<style>
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.car-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+.car-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.car-card-content {
+    padding: 16px;
+}
+
+.car-card h3 {
+    margin: 0 0 10px;
+}
+
+.car-price {
+    color: #e63946;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.car-details {
+    color: #555;
+    margin: 10px 0;
+}
+
+.car-card a {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+}
+</style>
+
+<script>
+const API_URL = "https://vishal-car-rental.gt.tc/api/cars.php";
+
+async function loadCars() {
+    const container = document.getElementById("cars-container");
+
+    try {
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+            throw new Error("API HTTP error: " + response.status);
+        }
+
+        const data = await response.json();
+
+        // API should return: { "success": true, "cars": [...] }
+        const cars = Array.isArray(data) ? data : data.cars;
+
+        if (!Array.isArray(cars) || cars.length === 0) {
+            container.textContent = "Abhi koi car available nahi hai.";
+            return;
+        }
+
+        container.replaceChildren();
+
+        cars.forEach(car => {
+            const card = document.createElement("article");
+            card.className = "car-card";
+
+            const image = document.createElement("img");
+            image.src = car.main_image_url || car.main_image || "";
+            image.alt = car.name || "Rental car";
+            image.loading = "lazy";
+
+            const content = document.createElement("div");
+            content.className = "car-card-content";
+
+            const title = document.createElement("h3");
+            title.textContent = `${car.brand || ""} ${car.name || ""}`.trim();
+
+            const price = document.createElement("p");
+            price.className = "car-price";
+            price.textContent = "₹" + Number(car.rental_price || 0).toLocaleString("en-IN") + "/day";
+
+            const details = document.createElement("p");
+            details.className = "car-details";
+            details.textContent =
+                `${car.category || ""} · ${car.seats || "-"} seats · ${car.transmission || "-"}`;
+
+            const link = document.createElement("a");
+            link.textContent = "View Details";
+
+            // Change this to your actual car-details page.
+            link.href = "car-details.html?id=" + encodeURIComponent(car.id);
+
+            content.append(title, price, details, link);
+            card.append(image, content);
+            container.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Car API error:", error);
+        container.textContent =
+            "Cars load nahi ho pa rahi hain. Please try again later.";
+    }
+}
+
+loadCars();
+</script>
+
+
+
         <svg width="0" height="0" class="absolute" aria-hidden="true"><defs>
                 <symbol id="car" viewBox="0 0 220 90"><path
                         d="M8 66c0-12 12-18 30-20l22-22c4-4 8-6 14-6h60c8 0 14 3 20 8l16 18c22 2 40 6 40 20v6H8z"
