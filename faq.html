@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQs | Self Drive Car Rental in Kota | Vishal Car Rental</title>
+<meta name="description" content="Answers about booking, documents, pricing, kilometre limits, returns and support for self drive car rental in Kota with Vishal Car Rental.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.YOURDOMAIN.in/faq">
+<meta property="og:type" content="website"><meta property="og:title" content="FAQs | Self Drive Car Rental in Kota | Vishal Car Rental"><meta property="og:description" content="Answers about booking, documents, pricing, kilometre limits, returns and support for self drive car rental in Kota with Vishal Car Rental."><meta property="og:url" content="https://www.YOURDOMAIN.in/faq">
+<meta name="theme-color" content="#0B0714">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%237C3AED'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23FFFFFF' font-family='Arial' font-weight='800'>V</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>document.write('<script src="'+(location.protocol==="file:"?"":"/")+'site.js"><\/script>')</script>
+</head>
+<body data-page="faq" class="bg-navy text-white antialiased">
+<div id="hdr"></div>
+<main>
+<script>document.write(H("HELP & FAQS","Frequently Asked Questions","Everything your self-drive rental questions need is already here. Quick answers regarding booking, documentation, pricing and returns."))</script>
+<section class="max-w-3xl mx-auto px-6 pb-14">
+<div id="tabs" class="flex flex-wrap gap-1 rounded-xl border border-white/10 bg-card p-1.5"></div>
+<input id="q" type="search" class="inp mt-4" placeholder="Search questions..." aria-label="Search questions">
+<div id="list" class="mt-6 space-y-3"><div class="sk h-16 rounded-xl"></div><div class="sk h-16 rounded-xl"></div><div class="sk h-16 rounded-xl"></div></div>
+<div class="rv mt-12 rounded-2xl border border-white/10 bg-card p-8 text-center"><p class="text-2xl">❓</p><h2 class="mt-2 text-2xl font-bold">Still have questions?</h2><p class="mt-2 text-steel">Need more information about your self drive car in Kota? Chat with our friendly team on WhatsApp or give us a quick call.</p><div class="mt-5 flex gap-3 justify-center flex-wrap"><a id="aw" class="rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-3 font-bold" target="_blank">Ask on WhatsApp</a><a class="rounded-xl border border-white/15 px-6 py-3 font-semibold" href="tel:+916367000635">+91 63670 00635</a></div></div></section>
+</main>
+<div id="ftr"></div>
+<script>
+
+document.getElementById("aw").href=`https://wa.me/${WA}?text=`+encodeURIComponent("Hello, I have a question about car rental.");
+let F=[],cat="All";const list=document.getElementById("list"),tabs=document.getElementById("tabs"),qi=document.getElementById("q");
+const draw=()=>{const q=qi.value.toLowerCase();const r=F.filter(f=>(cat==="All"||f.category===cat)&&(!q||(f.question+f.answer).toLowerCase().includes(q)));
+list.innerHTML=r.length?r.map((f,i)=>`<details class="rounded-xl border border-white/10 bg-card p-5" ${i===0&&!q&&cat==="All"?"open":""}><summary class="flex justify-between items-center gap-4 font-semibold text-lg">${esc(f.question)}<span class="plus text-2xl text-gold">+</span></summary><div class="mt-3 text-steel">${esc(f.answer)}</div></details>`).join(""):'<p class="text-steel">No questions found.</p>'};
+const tabsDraw=()=>{const c=["All",...new Set(F.map(f=>f.category).filter(Boolean))];tabs.innerHTML=c.map(x=>`<button type="button" data-c="${esc(x)}" class="tab ${x===cat?"on":""} rounded-lg px-4 py-2 text-sm font-semibold text-steel">${esc(x)}</button>`).join("")};
+tabs.onclick=e=>{const b=e.target.closest("[data-c]");if(b){cat=b.dataset.c;tabsDraw();draw()}};qi.oninput=draw;
+api("/api/faqs").then(d=>{F=d.faqs||[];if(!F.length){list.innerHTML='<p class="text-steel">FAQs will appear here soon. Meanwhile, message us on WhatsApp.</p>';return}
+tabsDraw();draw();seo({title:document.title,desc:document.querySelector('meta[name=description]').content,url:location.href.split("?")[0],ld:{"@context":"https://schema.org","@type":"FAQPage",mainEntity:F.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))}})}).catch(()=>list.innerHTML='<p class="text-red-400">Unable to load FAQs. Please try again later.</p>');
+reveal();
+</script>
+</body>
+</html>

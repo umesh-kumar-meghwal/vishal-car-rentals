@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Reviews | Vishal Car Rental & Tour and Travels Kota</title>
+<meta name="description" content="Read genuine customer reviews of Vishal Car Rental & Tour and Travels in Kota, and share your own self drive and taxi experience.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.YOURDOMAIN.in/reviews">
+<meta property="og:type" content="website"><meta property="og:title" content="Customer Reviews | Vishal Car Rental & Tour and Travels Kota"><meta property="og:description" content="Read genuine customer reviews of Vishal Car Rental & Tour and Travels in Kota, and share your own self drive and taxi experience."><meta property="og:url" content="https://www.YOURDOMAIN.in/reviews">
+<meta name="theme-color" content="#0B0714">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%237C3AED'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23FFFFFF' font-family='Arial' font-weight='800'>V</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>document.write('<script src="'+(location.protocol==="file:"?"":"/")+'site.js"><\/script>')</script>
+</head>
+<body data-page="reviews" class="bg-navy text-white antialiased">
+<div id="hdr"></div>
+<main>
+<script>document.write(H("CLIENTS SAY","Customer Reviews & Testimonials","See what passengers and road-trippers have to say about their self-drive experience with Vishal Car Rental."))</script>
+<section class="max-w-3xl mx-auto px-6"><div id="sum" class="rv flex flex-col sm:flex-row items-center justify-between gap-5 rounded-2xl border border-white/10 bg-card p-6"><div><p class="text-steel">Loading reviews…</p></div><a href="#write" class="rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-3 font-bold">Leave a Review</a></div></section>
+<section class="max-w-7xl mx-auto px-6 py-12"><div id="list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div></section>
+<section id="write" class="max-w-2xl mx-auto px-6 pb-16"><form id="rf" class="rv rounded-2xl border border-white/10 bg-card p-6 md:p-8 space-y-4">
+<h2 class="text-2xl font-bold">Write a Review</h2><p class="text-sm text-steel">Share your experience. Your review will appear on this page after our team approves it.</p>
+<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="grid sm:grid-cols-2 gap-4"><label class="text-sm font-medium">Your name *<input class="inp mt-1" name="name" required minlength="2" maxlength="60" placeholder="Your name"></label><label class="text-sm font-medium">Trip type<input class="inp mt-1" name="trip" maxlength="60" placeholder="e.g. Kota to Bundi"></label></div>
+<div><p class="text-sm font-medium mb-1">Your rating *</p><div id="sp" class="flex gap-1 text-3xl"></div><input type="hidden" name="rating" id="rt" value="5"></div>
+<label class="block text-sm font-medium">Your review *<textarea class="inp mt-1 min-h-[120px]" name="message" required minlength="10" maxlength="600" placeholder="Tell us about the car, the service and your trip..."></textarea></label>
+<button type="submit" class="w-full rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 py-3.5 font-bold disabled:opacity-60">Submit Review</button><p class="st text-sm"></p></form></section>
+</main>
+<div id="ftr"></div>
+<script>
+
+const sp=document.getElementById("sp"),rt=document.getElementById("rt");
+const paint=n=>sp.innerHTML=[1,2,3,4,5].map(i=>`<button type="button" data-v="${i}" aria-label="${i} stars" class="${i<=n?"text-amber-400":"text-white/20"}">★</button>`).join("");
+paint(5);sp.onclick=e=>{const b=e.target.closest("[data-v]");if(b){rt.value=b.dataset.v;paint(+b.dataset.v)}};
+document.getElementById("rf").onsubmit=e=>{e.preventDefault();submitJSON(e.target,"/api/reviews","Thank you! Your review will be published after approval.",()=>{rt.value=5;paint(5)})};
+(async()=>{const list=document.getElementById("list"),sum=document.getElementById("sum").firstElementChild;
+try{const rs=(await api("/api/reviews")).reviews||[];
+if(!rs.length){sum.innerHTML='<p class="font-bold text-lg">Be the first to review us</p><p class="text-sm text-steel">Share your trip experience below.</p>';list.innerHTML='';return}
+const avg=(rs.reduce((a,r)=>a+r.rating,0)/rs.length).toFixed(1);
+sum.innerHTML=`<p class="flex items-center gap-3"><span class="font-display text-5xl font-extrabold text-gold">${avg}</span>${stars(Math.round(avg))}</p><p class="text-sm text-steel mt-1">Based on ${rs.length} customer review${rs.length>1?"s":""}</p>`;
+list.innerHTML=rs.map(r=>`<article class="rv card rounded-2xl border border-white/10 bg-card p-6 flex flex-col"><div class="flex justify-between"><span>${stars(r.rating)}</span><span class="text-3xl text-gold/30">”</span></div><p class="mt-4 italic text-slate-300 flex-1">“${esc(r.message)}”</p><div class="mt-5 pt-4 border-t border-white/10 flex items-center gap-3"><span class="grid place-items-center w-10 h-10 rounded-full bg-violet-600/30 font-bold">${esc(r.name[0]).toUpperCase()}</span><div><p class="font-bold">${esc(r.name)}</p><p class="text-xs text-gold">${esc(r.trip||"Customer")}</p></div></div></article>`).join("");reveal()}
+catch(e){sum.innerHTML='<p class="text-red-400">Unable to load reviews right now.</p>'}})();
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog Article | Vishal Car Rental & Tour and Travels Kota</title>
+<meta name="description" content="Travel guide and car rental advice from Vishal Car Rental & Tour and Travels, Kota.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.YOURDOMAIN.in/blog">
+<meta property="og:type" content="website"><meta property="og:title" content="Blog Article | Vishal Car Rental & Tour and Travels Kota"><meta property="og:description" content="Travel guide and car rental advice from Vishal Car Rental & Tour and Travels, Kota."><meta property="og:url" content="https://www.YOURDOMAIN.in/blog">
+<meta name="theme-color" content="#0B0714">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%237C3AED'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23FFFFFF' font-family='Arial' font-weight='800'>V</text></svg>">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>document.write('<script src="'+(location.protocol==="file:"?"":"/")+'site.js"><\/script>')</script>
+</head>
+<body data-page="blog" class="bg-navy text-white antialiased">
+<div id="hdr"></div>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<nav aria-label="Breadcrumb" class="text-sm text-steel flex flex-wrap gap-2"><a id="c1" class="hover:text-white">Home</a><span>›</span><a id="c2" class="hover:text-white">Blogs</a><span>›</span><span id="crumb" class="text-gold font-semibold">Loading…</span></nav>
+<div id="view" class="mt-6"><div class="sk h-96 rounded-2xl"></div></div></main>
+<div id="ftr"></div>
+<script>
+
+document.getElementById("c1").href=L("/");document.getElementById("c2").href=L("/blog");
+const slug=getSlug("blog"),view=document.getElementById("view");
+api("/api/blogs/"+encodeURIComponent(slug)).then(d=>{const b=d.blog,cm=d.comments||[],rc=d.recent||[];const url=FILE_URL(b.slug);
+seo({title:`${b.title} | Vishal Car Rental Kota`,desc:b.excerpt,url,image:b.image_url,ld:{"@context":"https://schema.org","@type":"Article",headline:b.title,description:b.excerpt,image:b.image_url?[b.image_url]:undefined,datePublished:b.created_at,author:{"@type":"Person",name:b.author||"Vishal Car Rental"},publisher:{"@type":"Organization",name:"Vishal Car Rental & Tour and Travels"}}});
+document.getElementById("crumb").textContent=b.title;
+view.innerHTML=`<div class="grid lg:grid-cols-3 gap-8 up"><article class="lg:col-span-2"><span class="rounded-full border border-gold/40 bg-violet-600/10 px-4 py-1 text-sm font-semibold text-gold">${esc(b.category||"Article")}</span><h1 class="mt-4 text-3xl sm:text-5xl font-extrabold leading-tight">${esc(b.title)}</h1><p class="mt-4 text-sm text-steel">${esc(b.author||"Vishal Car Rental")} · ${fmtDate(b.created_at)} · ${b.read_minutes||4} min read</p>
+${b.image_url?`<img src="${esc(b.image_url)}" alt="${esc(b.title)}" class="mt-6 w-full rounded-2xl border border-white/10 object-cover max-h-[460px]" fetchpriority="high">`:""}
+<div class="mt-6 text-lg text-slate-300 leading-relaxed">${md(b.content)}</div>
+<section class="mt-12 rounded-2xl border border-white/10 bg-card p-6 md:p-8"><h2 class="text-2xl font-bold">Post Comments</h2><div class="mt-5 space-y-3">${cm.length?cm.map(c=>`<div class="rounded-xl border border-white/10 bg-navy/60 p-4"><div class="flex justify-between text-sm"><b class="text-gold">${esc(c.name)}</b><span class="text-steel">${fmtDate(c.created_at)}</span></div><p class="mt-2 text-slate-300">${esc(c.message)}</p></div>`).join(""):'<p class="text-steel">No comments yet. Be the first to comment.</p>'}</div>
+<form id="cmf" class="mt-8 space-y-4"><h3 class="font-bold">Leave a Reply</h3><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="grid sm:grid-cols-2 gap-4"><input class="inp" name="name" required maxlength="60" placeholder="Your Name *"><input class="inp" type="email" name="email" required placeholder="Your Email *"></div><textarea class="inp min-h-[110px]" name="message" required minlength="5" maxlength="800" placeholder="Write your comment here..."></textarea><button type="submit" class="rounded-xl bg-violet-600 px-6 py-3 font-bold disabled:opacity-60">Submit Comment</button><p class="st text-sm"></p></form></section></article>
+<aside class="space-y-6 lg:sticky lg:top-24 self-start"><div class="rounded-2xl border border-white/10 bg-card p-6 text-center"><h2 class="text-xl font-bold">Rent a Car in Kota</h2><p class="mt-2 text-sm text-steel">Get 24/7 self-drive cars with doorstep delivery in Kota and throughout Rajasthan.</p><a target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent("Hello, I read your blog and want to book a car.")}" class="mt-4 block rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 py-3 font-bold">Book on WhatsApp Now</a></div>
+<div class="rounded-2xl border border-white/10 bg-card p-6"><h2 class="text-xl font-bold">Recent Articles</h2><ul class="mt-4 space-y-4">${rc.map(r=>`<li><p class="text-xs text-gold">${esc(r.category||"")} · ${fmtDate(r.created_at)}</p><a class="font-semibold hover:text-gold" href="${L("/blog/"+r.slug)}">${esc(r.title)}</a></li>`).join("")}</ul></div></aside></div>`;
+document.getElementById("cmf").onsubmit=e=>{e.preventDefault();submitJSON(e.target,`/api/blogs/${encodeURIComponent(b.slug)}/comments`,"Thanks! Your comment will appear after approval.")}
+}).catch(e=>{document.getElementById("crumb").textContent="Not found";view.innerHTML=`<div class="rounded-2xl border border-white/10 bg-card p-10 text-center"><h1 class="text-3xl font-extrabold">Article not found</h1><a href="${L("/blog")}" class="mt-6 inline-block rounded-xl bg-violet-600 px-6 py-3 font-bold">View all articles</a></div>`});
+function FILE_URL(s){return location.protocol==="file:"?location.href:"https://www.YOURDOMAIN.in/blog/"+s}
+</script>
+</body>
+</html>
