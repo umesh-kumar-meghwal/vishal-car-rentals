@@ -1,0 +1,1 @@
+{"rewrites":[{"source":"/cars/:slug","destination":"/car.html"}]}
