@@ -1,11 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
 
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://vishalcarrentalkota.netlify.app/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <priority>1.0</priority>
-  </url>
+    <url>
+        <loc>https://vishalcarrentalkota.netlify.app/</loc>
+        <lastmod>2026-10-28</lastmod>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://vishalcarrentalkota.netlify.app/about.html</loc>
+        <lastmod>2026-10-28</lastmod>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://vishalcarrentalkota.netlify.app/blog.html</loc>
+        <lastmod>2026-10-28</lastmod>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://vishalcarrentalkota.netlify.app/blog-post.html</loc>
+        <lastmod>2026-10-28</lastmod>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://vishalcarrentalkota.netlify.app/car.html</loc>
+        <lastmod>2026-10-28</lastmod>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://vishalcarrentalkota.netlify.app/contact.html</loc>
+        <lastmod>2026-10-28</lastmod>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://vishalcarrentalkota.netlify.app/faq.html</loc>
+        <lastmod>2026-10-28</lastmod>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://vishalcarrentalkota.netlify.app/reviews.html</loc>
+        <lastmod>2026-10-28</lastmod>
+        <priority>0.7</priority>
+    </url>
 
 </urlset>
