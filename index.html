@@ -22,7 +22,7 @@
 tailwind.config={theme:{extend:{colors:{navy:'#0B0714',gold:'#A78BFA',snow:'#100A1D',steel:'#B3A8D1',card:'#150E26'},fontFamily:{display:['Manrope','sans-serif'],body:['Inter','sans-serif']}}}}
 </script>
 <style>
-html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;color:#F3EEFF;color-scheme:dark}input,select{color-scheme:dark}
+html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;color:#F3EEFF;color-scheme:dark}input,select,textarea{color-scheme:dark}
 h1,h2,h3,.font-display{font-family:Manrope,sans-serif;letter-spacing:-.02em}
 @keyframes drive{0%{transform:translateX(-30vw)}100%{transform:translateX(110vw)}}
 @keyframes dash{to{background-position:-80px 0}}
@@ -44,6 +44,7 @@ h1,h2,h3,.font-display{font-family:Manrope,sans-serif;letter-spacing:-.02em}
 .carimg{transition:transform .5s}.card:hover .carimg{transform:scale(1.07)}
 .sk{background:linear-gradient(90deg,#150E26 25%,#241A3F 50%,#150E26 75%);background-size:200% 100%;animation:shine 1.4s linear infinite}
 .tab.on{background:#7C3AED;color:#fff}
+.inp{width:100%;border-radius:.6rem;border:1px solid rgba(255,255,255,.15);background:#0F0A1C;color:#fff;padding:.75rem 1rem;font-size:.9rem}.inp::placeholder{color:#8277a3}
 details summary{list-style:none;cursor:pointer}details summary::-webkit-details-marker{display:none}
 details[open] .plus{transform:rotate(45deg)}.plus{transition:transform .3s}
 details[open]>div{animation:rise .4s both}
@@ -77,20 +78,20 @@ details[open]>div{animation:rise .4s both}
 <div class="absolute -right-40 -top-40 w-[560px] h-[560px] rounded-full bg-violet-600/30 blur-3xl"></div><div class="absolute -left-40 bottom-0 w-[420px] h-[420px] rounded-full bg-fuchsia-600/15 blur-3xl"></div>
 <div class="relative max-w-7xl mx-auto px-6 pt-14 pb-10 grid lg:grid-cols-2 gap-12 items-center">
 <div class="hero-in">
-<p class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-violet-600/10 text-gold px-4 py-1.5 text-sm font-medium">✦ Self Drive Car Solutions in Kota</p>
+<p class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-violet-600/10 text-gold px-4 py-1.5 text-sm font-medium"><span class="w-4 h-4" data-ic="sparkle"></span>Self Drive Car Solutions in Kota</p>
 <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.06]">Premier <span class="text-gold">Self Drive Car</span> Rental in Kota</h1>
 <p class="mt-5 text-lg text-slate-300 max-w-xl">Our goal is to give you the finest car rental experience in Kota. Well-maintained, insured vehicles with a straightforward, quick and stress-free service from the minute you arrive.</p>
 <div class="mt-8 max-w-xl space-y-3">
-<a href="#book" class="flex items-center justify-center gap-2 w-full rounded-xl py-4 font-bold bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:brightness-110 transition shadow-lg shadow-violet-700/40">Book Your Ride <span>→</span></a>
+<a href="#book" class="flex items-center justify-center gap-2 w-full rounded-xl py-4 font-bold bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:brightness-110 transition shadow-lg shadow-violet-700/40">Book Your Ride <span class="w-5 h-5" data-ic="arrow"></span></a>
 <a href="#fleet" class="flex items-center justify-center w-full rounded-xl py-4 font-semibold border border-white/15 bg-card hover:border-violet-400 transition">Explore Our Cars</a></div>
-<ul class="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-300"><li><span class="text-emerald-400">✓</span> Zero hidden fees</li><li><span class="text-emerald-400">✓</span> Doorstep delivery</li><li><span class="text-emerald-400">✓</span> Sanitized & insured</li></ul>
+<ul class="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-300"><li class="flex items-center gap-1.5"><span class="w-4 h-4 text-emerald-400" data-ic="check"></span>Zero hidden fees</li><li class="flex items-center gap-1.5"><span class="w-4 h-4 text-emerald-400" data-ic="check"></span>Doorstep delivery</li><li class="flex items-center gap-1.5"><span class="w-4 h-4 text-emerald-400" data-ic="check"></span>Sanitized & insured</li></ul>
 </div>
 <div class="hero-in relative">
 <div id="heroMedia" class="relative h-[380px] rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br from-violet-700/50 via-[#1B1233] to-navy">
 <div class="absolute inset-x-0 bottom-0 h-1/3 bg-black/40"><div class="road h-full"></div></div>
 <svg id="heroCar" class="absolute left-1/2 -translate-x-1/2 bottom-12 w-[78%] text-violet-300 drop-shadow-2xl" viewBox="0 0 220 90" aria-hidden="true"><use href="#car"/></svg></div>
-<div class="fl1 absolute -top-4 right-4 flex items-center gap-3 rounded-xl bg-card/95 border border-white/10 px-4 py-3 shadow-xl backdrop-blur"><span class="grid place-items-center w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400">⚡</span><div><p class="text-sm font-bold">Instant WhatsApp</p><p class="text-xs text-emerald-400">24/7 on call</p></div></div>
-<div class="fl2 absolute -bottom-5 left-4 flex items-center gap-3 rounded-xl bg-card/95 border border-white/10 px-4 py-3 shadow-xl backdrop-blur"><span class="grid place-items-center w-9 h-9 rounded-lg bg-violet-600/30 text-gold">★</span><div><p class="text-sm font-bold">Trusted in Kota</p><p class="text-xs text-steel">5,000+ journeys</p></div></div>
+<div class="fl1 absolute -top-4 right-4 flex items-center gap-3 rounded-xl bg-card/95 border border-white/10 px-4 py-3 shadow-xl backdrop-blur"><span class="grid place-items-center w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400" data-ic="bolt"></span><div><p class="text-sm font-bold">Instant WhatsApp</p><p class="text-xs text-emerald-400">24/7 on call</p></div></div>
+<div class="fl2 absolute -bottom-5 left-4 flex items-center gap-3 rounded-xl bg-card/95 border border-white/10 px-4 py-3 shadow-xl backdrop-blur"><span class="grid place-items-center w-9 h-9 rounded-lg bg-violet-600/30 text-gold" data-ic="star"></span><div><p class="text-sm font-bold">Trusted in Kota</p><p class="text-xs text-steel">5,000+ journeys</p></div></div>
 </div></div>
 <div class="relative h-16 overflow-hidden" aria-hidden="true">
 <div class="car absolute bottom-4 left-0 w-28 text-gold"><svg viewBox="0 0 220 90"><use href="#car"/></svg></div>
@@ -115,7 +116,37 @@ details[open]>div{animation:rise .4s both}
 </section>
 
 <section class="bg-snow border-y border-white/10 py-4 mt-12 overflow-hidden" aria-label="Popular routes"><div class="marquee flex w-max gap-12 font-display font-bold text-steel whitespace-nowrap">
-<script>document.write(Array(2).fill(["Kota to Jaipur","Kota to Udaipur","Kota to Bundi","Kota to Chittorgarh","Kota to Ranthambore","Kota to Jodhpur","Kota to Pushkar","Kota to Delhi","Kota to Indore"].map(t=>`<span>${t}</span><span class="text-gold">◆</span>`).join('')).join(''))</script></div></section>
+<script>document.write(Array(2).fill(["Kota to Jaipur","Kota to Udaipur","Kota to Bundi","Kota to Chittorgarh","Kota to Ranthambore","Kota to Jodhpur","Kota to Pushkar","Kota to Delhi","Kota to Indore"].map(t=>`<span>${t}</span><span class="w-2 h-2 rotate-45 bg-gold self-center"></span>`).join('')).join(''))</script></div></section>
+
+<!-- About -->
+<section id="about" class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
+  <div class="rv relative h-[420px] sm:h-[480px]">
+    <div class="absolute left-0 top-0 w-[66%] h-[75%] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-violet-700/50 to-card shadow-2xl">
+      <img id="aboutImg1" alt="Self drive car available for rent in Kota" class="w-full h-full object-cover hidden" loading="lazy">
+      <svg id="aboutSvg1" class="w-full h-full p-8 text-violet-300" viewBox="0 0 220 90"><use href="#car"/></svg>
+    </div>
+    <div class="absolute right-0 bottom-0 w-[60%] h-[62%] overflow-hidden rounded-2xl border-4 border-navy bg-gradient-to-br from-fuchsia-700/40 to-card shadow-2xl">
+      <img id="aboutImg2" alt="Chauffeur driven taxi in Kota" class="w-full h-full object-cover hidden" loading="lazy">
+      <svg id="aboutSvg2" class="w-full h-full p-8 text-fuchsia-300" viewBox="0 0 220 90"><use href="#car"/></svg>
+    </div>
+    <div class="absolute left-4 bottom-6 flex items-center gap-3 rounded-xl bg-card/95 border border-white/10 px-4 py-3 shadow-xl backdrop-blur">
+      <span class="grid place-items-center w-10 h-10 rounded-lg bg-violet-600/30 text-gold" data-ic="shield"></span>
+      <div><p class="text-sm font-bold">Insured fleet</p><p class="text-xs text-steel">Checked before every trip</p></div>
+    </div>
+  </div>
+  <div class="rv">
+    <p class="inline-block rounded-full border border-gold/40 text-gold px-4 py-1 text-sm font-semibold">About Our Company</p>
+    <h2 class="mt-4 text-3xl sm:text-5xl font-extrabold leading-tight">The finest car rental experience in Kota</h2>
+    <p class="mt-5 text-steel text-lg">Vishal Car Rental & Tour and Travels gives you clean, well-maintained cars with clear pricing and no surprises. Whether you want to drive yourself or travel with a professional driver, we keep the process quick and simple.</p>
+    <ul class="mt-6 grid sm:grid-cols-2 gap-3">
+      <li class="flex items-center gap-3"><span class="grid place-items-center w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400" data-ic="check"></span>Self drive and chauffeur cars</li>
+      <li class="flex items-center gap-3"><span class="grid place-items-center w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400" data-ic="check"></span>Doorstep delivery in Kota</li>
+      <li class="flex items-center gap-3"><span class="grid place-items-center w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400" data-ic="check"></span>Rajasthan tour packages</li>
+      <li class="flex items-center gap-3"><span class="grid place-items-center w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400" data-ic="check"></span>Support on WhatsApp, 24/7</li>
+    </ul>
+    <a href="#fleet" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-7 py-3.5 font-bold hover:brightness-110 transition">Explore our cars<span class="w-5 h-5" data-ic="arrow"></span></a>
+  </div>
+</section>
 
 <!-- Fleet -->
 <section id="fleet" class="max-w-7xl mx-auto px-6 py-20">
@@ -126,8 +157,17 @@ details[open]>div{animation:rise .4s both}
 <div id="fleetGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </section>
 
+<!-- Why us -->
+<section id="why" class="bg-snow py-20"><div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-2xl mx-auto text-center rv">
+    <h2 class="text-3xl sm:text-5xl font-extrabold">Why ride with Vishal Car Rental?</h2>
+    <p class="mt-3 text-steel">Six reasons customers in Kota book with us again.</p>
+  </div>
+  <div id="whyGrid" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</div></section>
+
 <!-- Services -->
-<section id="services" class="bg-snow py-20"><div class="max-w-7xl mx-auto px-6">
+<section id="services" class="py-20"><div class="max-w-7xl mx-auto px-6">
 <h2 class="text-3xl sm:text-4xl font-extrabold max-w-2xl rv">Complete car rental and travel solutions</h2>
 <div class="mt-10 grid md:grid-cols-2 gap-6">
 <article class="rv card bg-card border border-white/10 rounded-2xl p-8"><h3 class="text-xl font-bold">Self drive car rental in Kota</h3><p class="mt-2 text-steel">Drive on your own schedule. With a valid licence and ID, your car is delivered on time with a daily kilometre allowance.</p></article>
@@ -140,22 +180,82 @@ details[open]>div{animation:rise .4s both}
 <h2 class="text-3xl sm:text-4xl font-extrabold max-w-2xl rv">Rajasthan tour packages from Kota</h2>
 <div class="mt-10 grid md:grid-cols-3 gap-6" id="tourGrid"></div></section>
 
-<section id="how" class="bg-snow py-20"><div class="max-w-7xl mx-auto px-6">
-<h2 class="text-3xl sm:text-4xl font-extrabold max-w-2xl rv">Book in four simple steps</h2>
-<ol class="mt-10 grid md:grid-cols-4 gap-6" id="steps"></ol></div></section>
+<!-- How to book -->
+<section id="how" class="bg-snow max-w-none py-20"><div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-2xl mx-auto text-center rv">
+    <h2 class="text-3xl sm:text-5xl font-extrabold">How to book a self drive car in Kota</h2>
+    <p class="mt-3 text-steel">Four steps from choosing a car to driving off.</p>
+  </div>
+  <ol id="steps" class="mt-12 grid md:grid-cols-4 gap-6"></ol>
+</div></section>
 
-<section id="reviews" class="max-w-7xl mx-auto px-6 py-20"><div class="max-w-2xl mx-auto text-center rv"><p class="inline-block rounded-full border border-gold/40 text-gold px-4 py-1 text-xs font-bold tracking-widest">CLIENTS SAY</p><h2 class="mt-4 text-3xl sm:text-4xl font-extrabold">What our customers say</h2><p class="mt-3 text-steel">Real feedback from passengers and road-trippers who rented with Vishal Car Rental.</p></div>
-<div id="revGrid" class="mt-10 grid md:grid-cols-3 gap-6"></div><div class="mt-8 flex flex-wrap justify-center gap-3"><a id="revAll" class="rounded-xl border border-white/15 bg-card px-6 py-3 font-semibold hover:border-violet-400 transition">Read all reviews</a><a id="revWrite" class="rounded-xl bg-violet-600 px-6 py-3 font-semibold hover:bg-violet-400 hover:text-navy transition">Leave a review</a></div></section>
+<!-- Call CTA -->
+<section class="px-6 py-14">
+  <div class="rv relative max-w-7xl mx-auto overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-fuchsia-600 to-orange-500 p-8 sm:p-14">
+    <div class="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-white/15 blur-2xl"></div>
+    <div class="absolute -left-16 -bottom-24 w-72 h-72 rounded-full bg-black/20 blur-2xl"></div>
+    <div class="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-sm font-semibold"><span class="w-5 h-5" data-ic="phone"></span>Call us now</span>
+        <h2 class="mt-4 text-3xl sm:text-5xl font-extrabold leading-tight">Book your car for your next ride</h2>
+        <p class="mt-3 max-w-xl text-white/90 text-lg">Tell us your dates and destination. We confirm availability and rates in minutes.</p>
+      </div>
+      <div class="flex flex-col gap-3 min-w-[260px]">
+        <a href="tel:+916367000635" class="flex items-center justify-center gap-3 rounded-xl bg-white text-violet-700 px-7 py-4 text-lg font-extrabold hover:bg-violet-50 transition"><span class="w-6 h-6" data-ic="phone"></span>+91 63670 00635</a>
+        <a href="https://wa.me/916367000635?text=Hello%20Vishal%20Car%20Rental" class="flex items-center justify-center gap-3 rounded-xl border-2 border-white/70 px-7 py-4 font-bold hover:bg-white/15 transition"><svg class="w-5 h-5"><use href="#chat"/></svg>Book on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="faq" class="max-w-3xl mx-auto px-6 py-20">
 <h2 class="text-3xl sm:text-4xl font-extrabold rv">Frequently asked questions</h2>
 <div class="mt-8 space-y-3" id="faqList"></div></section>
 
-<section id="contact" class="bg-snow py-20"><div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
-<div class="rv"><h2 class="text-3xl sm:text-4xl font-extrabold">Contact Vishal Car Rental in Kota</h2>
-<address class="not-italic mt-6 space-y-3 text-lg"><p><strong>Address:</strong> 232, Sector 7, Keshavpura, Mahaveer Nagar, Kota, Rajasthan 324005</p><p><strong>Phone:</strong> <a class="text-gold font-semibold" href="tel:+916367000635">6367000635</a></p><p><strong>Hours:</strong> Bookings and support, 24/7</p></address>
-<div class="mt-6 flex gap-3 flex-wrap"><a href="https://wa.me/916367000635" class="bg-violet-600 text-white font-semibold rounded-lg px-6 py-3 hover:bg-violet-400 hover:text-navy transition">Message on WhatsApp</a><a href="tel:+916367000635" class="border border-violet-400 font-semibold rounded-lg px-6 py-3 hover:bg-violet-600 transition">Call now</a></div></div>
-<iframe title="Vishal Car Rental map, Keshavpura Kota" loading="lazy" class="rv w-full h-80 rounded-2xl border-0" style="filter:invert(92%) hue-rotate(180deg) contrast(.9)" src="https://www.google.com/maps?q=Keshavpura+Mahaveer+Nagar+Kota+Rajasthan+324005&output=embed"></iframe>
+<!-- Reviews -->
+<section id="reviews" class="max-w-7xl mx-auto px-6 py-20"><div class="max-w-2xl mx-auto text-center rv"><p class="inline-block rounded-full border border-gold/40 text-gold px-4 py-1 text-xs font-bold tracking-widest">CLIENTS SAY</p><h2 class="mt-4 text-3xl sm:text-4xl font-extrabold">What our customers say</h2><p class="mt-3 text-steel">Real feedback from passengers and road-trippers who rented with Vishal Car Rental.</p></div>
+<div id="revGrid" class="mt-10 grid md:grid-cols-3 gap-6"></div><div class="mt-8 flex flex-wrap justify-center gap-3"><a id="revAll" class="rounded-xl border border-white/15 bg-card px-6 py-3 font-semibold hover:border-violet-400 transition">Read all reviews</a><a id="revWrite" class="rounded-xl bg-violet-600 px-6 py-3 font-semibold hover:bg-violet-400 hover:text-navy transition">Leave a review</a></div></section>
+
+<!-- News & insights -->
+<section id="blog" class="max-w-7xl mx-auto px-6 py-20">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 rv">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl sm:text-5xl font-extrabold">News and insights</h2>
+      <p class="mt-3 text-steel">Travel guides, rental tips and fleet updates for your next Rajasthan trip.</p>
+    </div>
+    <a id="blogAll" class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-card px-6 py-3 font-semibold hover:border-violet-400 transition w-fit">View all guides<span class="w-5 h-5" data-ic="arrow"></span></a>
+  </div>
+  <div id="blogGrid" class="mt-10 grid md:grid-cols-3 gap-6"></div>
+</section>
+
+<!-- Get in touch -->
+<section id="contact" class="bg-snow py-20"><div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-2xl mx-auto text-center rv">
+    <h2 class="text-3xl sm:text-5xl font-extrabold">Have any questions?</h2>
+    <p class="mt-3 text-steel">Call us, message on WhatsApp or fill the form. We reply fast.</p>
+  </div>
+  <div class="mt-12 grid lg:grid-cols-5 gap-8">
+    <div class="lg:col-span-2 space-y-4 rv">
+      <div class="flex gap-4 rounded-2xl border border-white/10 bg-card p-5"><span class="grid place-items-center shrink-0 w-12 h-12 rounded-xl bg-violet-600/25 text-gold" data-ic="pin"></span><div><p class="font-bold">Our location</p><p class="text-steel text-sm mt-1">232, Sector 7, Keshavpura, Mahaveer Nagar, Kota, Rajasthan 324005</p></div></div>
+      <div class="flex gap-4 rounded-2xl border border-white/10 bg-card p-5"><span class="grid place-items-center shrink-0 w-12 h-12 rounded-xl bg-violet-600/25 text-gold" data-ic="phone"></span><div><p class="font-bold">Phone support</p><a href="tel:+916367000635" class="text-gold text-sm mt-1 inline-block">+91 63670 00635</a></div></div>
+      <div class="flex gap-4 rounded-2xl border border-white/10 bg-card p-5"><span class="grid place-items-center shrink-0 w-12 h-12 rounded-xl bg-violet-600/25 text-gold" data-ic="clock"></span><div><p class="font-bold">Working hours</p><p class="text-steel text-sm mt-1">Bookings and support, 24/7</p></div></div>
+      <iframe title="Vishal Car Rental map, Keshavpura Kota" loading="lazy" class="w-full h-56 rounded-2xl border-0" style="filter:invert(92%) hue-rotate(180deg) contrast(.9)" src="https://www.google.com/maps?q=Keshavpura+Mahaveer+Nagar+Kota+Rajasthan+324005&output=embed"></iframe>
+    </div>
+    <form id="cf" class="lg:col-span-3 rv rounded-2xl border border-white/10 bg-card p-6 sm:p-8">
+      <h3 class="text-2xl font-bold">Send us a message</h3>
+      <p class="text-steel text-sm mt-1 mb-5">Your details open in WhatsApp so our team can reply right away.</p>
+      <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="text-sm font-medium">First name *<input name="first_name" required class="inp mt-1"></label>
+        <label class="text-sm font-medium">Last name *<input name="last_name" required class="inp mt-1"></label>
+        <label class="text-sm font-medium">Email address *<input name="email" type="email" required class="inp mt-1"></label>
+        <label class="text-sm font-medium">Phone number *<input name="phone" type="tel" required pattern="[0-9+ ()\-]{8,18}" class="inp mt-1"></label>
+        <label class="text-sm font-medium sm:col-span-2">Message *<textarea name="message" required minlength="10" rows="4" class="inp mt-1"></textarea></label>
+      </div>
+      <button class="mt-6 w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 py-3.5 font-bold hover:brightness-110 transition"><svg class="w-5 h-5"><use href="#chat"/></svg>Send message on WhatsApp</button>
+      <p class="st mt-3 text-sm text-emerald-400" role="status"></p>
+    </form>
+  </div>
 </div></section>
 </main>
 
@@ -173,6 +273,26 @@ const slugify=t=>String(t||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(
 const carURL=c=>location.protocol==="file:"?`car.html?slug=${slugify(c.name)}`:`/cars/${slugify(c.name)}`;
 const kmText=k=>/km/i.test(k)?`${k} included`:`${k} km/day included`;
 const grid=document.getElementById("fleetGrid"),tabs=document.getElementById("tabs"),qi=document.getElementById("q");
+
+/* ---------- SVG icons (no emoji) ---------- */
+const ICONS={
+shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>',
+tag:'<path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/>',
+truck:'<path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/>',
+clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+doc:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',
+car:'<path d="M4 16v-4l2-5h12l2 5v4M4 16h16M4 16v2h3v-2M17 16v2h3v-2"/><circle cx="8" cy="13" r="1"/><circle cx="16" cy="13" r="1"/>',
+key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/>',
+phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/>',
+pin:'<path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+sparkle:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>',
+chat:'<path d="M4 5h16v11H9l-5 4z"/>',
+check:'<path d="M5 12l4.5 4.5L19 7"/>',
+arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+bolt:'<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>',
+star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>'};
+const ic=(n,c="w-6 h-6")=>`<svg class="${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]||""}</svg>`;
+document.querySelectorAll("[data-ic]").forEach(e=>{e.innerHTML=ic(e.dataset.ic,e.classList.contains("grid")?"w-full h-full p-[22%]":"w-full h-full")});
 
 function cardHTML(car,i){
   const name=esc(car.name),brand=esc(car.brand),fuel=esc(car.fuel||""),cate=esc(car.category||car.type||"Car");
@@ -204,6 +324,9 @@ function buildTabs(){
 tabs.onclick=e=>{const b=e.target.closest("[data-cat]");if(!b)return;cat=b.dataset.cat;buildTabs();render()};
 qi.oninput=render;
 
+/* About section: fleet ki pehli 2 car photos */
+function fillAbout(){ALL.filter(c=>c.image_url).slice(0,2).forEach((c,i)=>{const el=document.getElementById("aboutImg"+(i+1)),sv=document.getElementById("aboutSvg"+(i+1));if(!el)return;el.src=c.image_url;el.classList.remove("hidden");sv&&sv.remove()})}
+
 async function loadCars(){
   grid.innerHTML=Array(3).fill('<div class="sk h-[520px] rounded-2xl"></div>').join("");
   try{
@@ -211,23 +334,55 @@ async function loadCars(){
     if(!r.ok)throw new Error(r.status);
     ALL=(await r.json()).cars||[];
     if(!ALL.length){grid.innerHTML='<p class="text-steel">No cars are currently available.</p>';return}
-    buildTabs();render();
+    buildTabs();render();fillAbout();
     document.getElementById("c").innerHTML='<option>Any available car</option>'+ALL.map(c=>`<option>${esc(c.name)}</option>`).join("");
     const hi=ALL.find(c=>c.image_url);
     if(hi){const m=document.getElementById("heroMedia");document.getElementById("heroCar").remove();m.insertAdjacentHTML("afterbegin",`<img src="${esc(hi.image_url)}" alt="${esc(hi.name)} self drive rental in Kota" class="absolute inset-0 w-full h-full object-cover" fetchpriority="high">`);m.querySelector(".road").parentElement.remove()}
   }catch(err){console.error("Car API error:",err);grid.innerHTML='<p class="text-red-400">Unable to load cars. Please try again later.</p>'}
 }
 loadCars();
-document.getElementById("revAll").href=L("/reviews");document.getElementById("revWrite").href=L("/reviews")+"#write";
-api("/api/reviews").then(d=>{const rs=(d.reviews||[]).slice(0,3),g=document.getElementById("revGrid");if(!rs.length){document.getElementById("reviews").classList.add("hidden");return}
-g.innerHTML=rs.map(r=>`<article class="card rounded-2xl border border-white/10 bg-card p-6 flex flex-col"><span>${stars(r.rating)}</span><p class="mt-4 italic text-slate-300 flex-1">“${esc(r.message)}”</p><div class="mt-5 pt-4 border-t border-white/10"><p class="font-bold">${esc(r.name)}</p><p class="text-xs text-gold">${esc(r.trip||"Customer")}</p></div></article>`).join("")}).catch(()=>document.getElementById("reviews").classList.add("hidden"));
 
+/* Reviews */
+document.getElementById("revAll").href=L("/reviews");document.getElementById("revWrite").href=L("/reviews")+"#write";
+const revG=document.getElementById("revGrid");
+const revMsg=(t,sub)=>revG.innerHTML=`<div class="md:col-span-3 rounded-2xl border border-white/10 bg-card p-8 text-center"><p class="text-lg font-bold">${t}</p><p class="mt-1 text-sm text-steel">${sub}</p></div>`;
+revG.innerHTML=Array(3).fill('<div class="sk h-48 rounded-2xl"></div>').join("");
+api("/api/reviews").then(d=>{const rs=(d.reviews||[]).slice(0,6);
+if(!rs.length){revMsg("Be the first to review us","Rented a car from us? Share your experience, it takes a minute.");return}
+revG.innerHTML=rs.map(r=>`<article class="card rounded-2xl border border-white/10 bg-card p-6 flex flex-col"><span>${stars(r.rating)}</span><p class="mt-4 italic text-slate-300 flex-1">“${esc(r.message)}”</p><div class="mt-5 pt-4 border-t border-white/10 flex items-center gap-3"><span class="grid place-items-center w-10 h-10 rounded-full bg-violet-600/30 font-bold">${esc(r.name[0]).toUpperCase()}</span><div><p class="font-bold">${esc(r.name)}</p><p class="text-xs text-gold">${esc(r.trip||"Customer")}</p></div></div></article>`).join("")})
+.catch(e=>{console.error(e);revMsg("Reviews are not available right now","Please try again later, or leave your own review below.")});
+
+/* Tours */
 const tours=[["Kota to Jaipur","Amber Fort, Hawa Mahal, City Palace","1 to 2 days"],["Kota to Udaipur","Lake Pichola, City Palace, Sajjangarh","2 to 3 days"],["Bundi and Chittorgarh","Taragarh Fort, Chittorgarh Fort, Menal","1 to 2 days"],["Ranthambore Safari","Tiger reserve and historic fort","2 days"],["Jodhpur and Pushkar","Mehrangarh Fort, Brahma Temple","3 to 4 days"],["Rajasthan Grand Circuit","Jaipur, Udaipur, Jodhpur, Jaisalmer","6 to 8 days"]];
 document.getElementById("tourGrid").innerHTML=tours.map(t=>`<article class="rv card rounded-2xl bg-gradient-to-br from-violet-700 to-[#1B1233] p-7 border border-white/10"><p class="text-gold text-sm font-semibold">${t[2]}</p><h3 class="text-2xl font-bold mt-1">${t[0]}</h3><p class="mt-3 text-slate-300">${t[1]}</p><a class="inline-block mt-5 text-gold font-semibold hover:underline" href="https://wa.me/${WA}?text=${encodeURIComponent("Please share details of the "+t[0]+" package")}">Enquire about this package</a></article>`).join("");
-const steps=[["Choose your car","Select a vehicle and your travel dates."],["Receive a quote","Our team confirms availability and rates on WhatsApp."],["Verify documents","Share your driving licence and ID proof, then pay."],["Hit the road","Your clean, insured car arrives at your doorstep."]];
-document.getElementById("steps").innerHTML=steps.map((s,i)=>`<li class="rv card rounded-2xl border border-white/10 bg-card p-6"><div class="flex justify-between items-start"><span class="grid place-items-center w-11 h-11 rounded-xl bg-violet-600/20 border border-violet-500/40 text-gold font-bold">${i+1}</span><span class="font-mono text-2xl text-white/15">0${i+1}</span></div><h3 class="mt-4 font-bold text-lg">${s[0]}</h3><p class="text-steel mt-1">${s[1]}</p></li>`).join("");
+
+/* Why us */
+const why=[["tag","Transparent pricing","Clear daily rates and kilometre limits. No hidden charges at return."],["truck","Doorstep delivery","We bring the car to your home, Kota Junction or the bus stand."],["sparkle","Clean and sanitized","Every car is cleaned and checked before it reaches you."],["shield","Insured vehicles","Fully insured, well-serviced cars for a worry-free drive."],["clock","24/7 support","Roadside help and booking support on call and WhatsApp, day or night."],["chat","Quick WhatsApp booking","Share dates and documents on WhatsApp and get confirmation in minutes."]];
+document.getElementById("whyGrid").innerHTML=why.map(w=>`<article class="rv card rounded-2xl border border-white/10 bg-card p-7"><span class="grid place-items-center w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-700/30">${ic(w[0],"w-7 h-7")}</span><h3 class="mt-5 text-xl font-bold">${w[1]}</h3><p class="mt-2 text-steel">${w[2]}</p></article>`).join("");
+
+/* How to book */
+const steps=[["car","Choose your car","Pick a vehicle and your travel dates."],["chat","Receive a quote","Our team confirms availability and rates on WhatsApp."],["doc","Verify documents","Share your driving licence and ID proof, then pay."],["key","Hit the road","Your clean, insured car arrives at your doorstep."]];
+document.getElementById("steps").innerHTML=steps.map((s,i)=>`<li class="rv card relative rounded-2xl border border-white/10 bg-card p-6"><div class="flex items-center justify-between"><span class="grid place-items-center w-14 h-14 rounded-2xl bg-violet-600/20 border border-violet-500/40 text-gold">${ic(s[0],"w-7 h-7")}</span><span class="font-display text-sm font-bold text-steel">Step ${i+1}</span></div><h3 class="mt-5 font-bold text-lg">${s[1]}</h3><p class="text-steel mt-1">${s[2]}</p></li>`).join("");
+
+/* FAQ */
 const faq=[["How do I book a self drive car in Kota?","Choose a car and click Book now, or message 6367000635 on WhatsApp. After a quick document check, the car is delivered to your doorstep."],["What documents are required?","A valid driving licence and one government ID proof such as Aadhaar, Passport or Voter ID."],["Do you offer taxis with a driver?","Yes. Chauffeur-driven taxis are available for local and outstation travel."],["Can you deliver to the railway station or bus stand?","Yes. We deliver to Kota Junction, the bus stand and any address in Kota."],["What are the kilometre and fuel policies?","The daily kilometre limit depends on the vehicle. Fuel policy is explained clearly at the time of booking."]];
 document.getElementById("faqList").innerHTML=faq.map(f=>`<details class="rv bg-card rounded-xl p-5 border border-white/10"><summary class="flex justify-between items-center font-semibold text-lg">${f[0]}<span class="plus text-2xl text-gold">+</span></summary><div class="mt-3 text-steel">${f[1]}</div></details>`).join("");
+
+/* News & Insights (backend /api/blogs) */
+document.getElementById("blogAll").href=L("/blog");
+const bg=document.getElementById("blogGrid");
+bg.innerHTML=Array(3).fill('<div class="sk h-80 rounded-2xl"></div>').join("");
+api("/api/blogs").then(d=>{const bs=(d.blogs||[]).slice(0,3);
+if(!bs.length){bg.innerHTML='<div class="md:col-span-3 rounded-2xl border border-white/10 bg-card p-8 text-center"><p class="text-lg font-bold">Guides are coming soon</p><p class="mt-1 text-sm text-steel">Add articles from the admin panel and they appear here.</p></div>';return}
+bg.innerHTML=bs.map(b=>`<article class="card flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-card"><a href="${L("/blog/"+b.slug)}" class="block h-48 overflow-hidden bg-gradient-to-br from-violet-700/50 to-card">${b.image_url?`<img src="${esc(b.image_url)}" alt="${esc(b.title)}" loading="lazy" class="w-full h-full object-cover">`:`<svg class="w-full h-full p-10 text-violet-300" viewBox="0 0 220 90"><use href="#car"/></svg>`}</a><div class="flex flex-1 flex-col p-6"><div class="flex flex-wrap items-center gap-3 text-xs text-steel"><span class="rounded-full border border-gold/40 px-3 py-1 text-gold font-semibold">${esc(b.category||"Travel Guide")}</span><span>${fmtDate(b.created_at)}</span><span>${esc(b.read_minutes||4)} min read</span></div><h3 class="mt-4 text-xl font-bold"><a href="${L("/blog/"+b.slug)}" class="hover:text-gold transition">${esc(b.title)}</a></h3><p class="mt-2 text-steel text-sm line-clamp-3 flex-1">${esc(b.excerpt)}</p><a href="${L("/blog/"+b.slug)}" class="mt-5 inline-flex items-center gap-2 font-semibold text-gold hover:underline">Read full article${ic("arrow","w-4 h-4")}</a></div></article>`).join("")})
+.catch(e=>{console.error(e);bg.innerHTML='<p class="md:col-span-3 text-steel">Articles are not available right now.</p>'});
+
+/* Contact form: backend me save + WhatsApp */
+document.getElementById("cf").addEventListener("submit",async e=>{e.preventDefault();const f=e.target,d=Object.fromEntries(new FormData(f)),b=f.querySelector("button"),st=f.querySelector(".st");
+const m=encodeURIComponent(`Hello Vishal Car Rental,\nName: ${d.first_name} ${d.last_name}\nPhone: ${d.phone}\nEmail: ${d.email}\nMessage: ${d.message}`);
+window.open(`https://wa.me/${WA}?text=${m}`,"_blank");
+b.disabled=true;try{await post("/api/contact",d)}catch(_){}
+st.textContent="Thanks! WhatsApp has opened with your message.";f.reset();b.disabled=false});
 
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("on");io.unobserve(x.target)}}),{threshold:.12});
 document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%3)*90+"ms";io.observe(el)});

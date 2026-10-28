@@ -18,19 +18,22 @@
 tailwind.config={theme:{extend:{colors:{navy:'#0B0714',gold:'#A78BFA',snow:'#100A1D',steel:'#B3A8D1',card:'#150E26'},fontFamily:{display:['Manrope','sans-serif'],body:['Inter','sans-serif']}}}}
 </script>
 <style>
-html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;color:#F3EEFF;color-scheme:dark}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Inter,sans-serif;color:#F3EEFF;color-scheme:dark;max-width:100%;overflow-x:clip}
 h1,h2,h3,.font-display{font-family:Manrope,sans-serif;letter-spacing:-.02em}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(139,92,246,.6)}100%{box-shadow:0 0 0 18px rgba(139,92,246,0)}}
 @keyframes shine{to{background-position:-200% 0}}
 .up>*{opacity:0;animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
-.up>*:nth-child(2){animation-delay:.1s}.up>*:nth-child(3){animation-delay:.2s}.up>*:nth-child(4){animation-delay:.3s}.up>*:nth-child(5){animation-delay:.4s}.up>*:nth-child(6){animation-delay:.5s}
+.up>*:nth-child(2){animation-delay:.1s}
 .fab{animation:ring 2.2s infinite}
 .card{transition:transform .35s,box-shadow .35s,border-color .35s}.card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(124,58,237,.55);border-color:#8B5CF6}
 .zoom img{transition:transform .6s}.zoom:hover img{transform:scale(1.04)}
 .sk{background:linear-gradient(90deg,#150E26 25%,#241A3F 50%,#150E26 75%);background-size:200% 100%;animation:shine 1.4s linear infinite}
 .th.on{border-color:#A78BFA;box-shadow:0 0 0 2px #7C3AED66}
+.noscroll{scrollbar-width:none}.noscroll::-webkit-scrollbar{display:none}
 :focus-visible{outline:3px solid #A78BFA;outline-offset:3px}
+@media(hover:none){.card:hover{transform:none;box-shadow:none}.zoom:hover img{transform:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.up>*{opacity:1}}
 </style>
 <script>document.write('<script src="'+(location.protocol==="file:"?"":"/")+'site.js"><\/script>')</script>
@@ -40,17 +43,15 @@ h1,h2,h3,.font-display{font-family:Manrope,sans-serif;letter-spacing:-.02em}
 
 <div id="hdr"></div>
 
-<main class="max-w-7xl mx-auto px-6 py-8">
-<nav aria-label="Breadcrumb" class="text-sm text-steel flex flex-wrap gap-2 items-center"><a href="/" class="hover:text-white">Home</a><span>›</span><a href="/#fleet" class="hover:text-white">Fleet</a><span>›</span><span id="crumb" class="text-gold font-semibold">Loading…</span></nav>
-<div id="view" class="mt-6"><div class="grid lg:grid-cols-5 gap-6"><div class="sk h-[420px] rounded-2xl lg:col-span-3"></div><div class="sk h-[420px] rounded-2xl lg:col-span-2"></div></div></div>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+<nav aria-label="Breadcrumb" class="text-sm text-steel flex flex-wrap gap-2 items-center"><a href="/" class="hover:text-white">Home</a><span>›</span><a href="/#fleet" class="hover:text-white">Fleet</a><span>›</span><span id="crumb" class="text-gold font-semibold break-words min-w-0">Loading…</span></nav>
+<div id="view" class="mt-5 sm:mt-6"><div class="grid grid-cols-1 lg:grid-cols-5 gap-6"><div class="sk h-[300px] sm:h-[420px] rounded-2xl lg:col-span-3"></div><div class="sk h-[300px] sm:h-[420px] rounded-2xl lg:col-span-2"></div></div></div>
 </main>
-
-
 
 <div id="ftr"></div>
 
-<div id="bar" class="hidden fixed bottom-0 inset-x-0 z-40 lg:hidden bg-navy/95 backdrop-blur border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3"></div>
-<a href="https://wa.me/916367000635" aria-label="Chat on WhatsApp" class="fab fixed bottom-24 lg:bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-violet-600 text-white grid place-items-center"><svg class="w-7 h-7"><use href="#chat"/></svg></a>
+<div id="bar" class="hidden fixed bottom-0 inset-x-0 z-40 lg:hidden bg-navy/95 backdrop-blur border-t border-white/10 px-4 pt-3 pb-[max(.75rem,env(safe-area-inset-bottom))] flex items-center justify-between gap-3"></div>
+<a href="https://wa.me/916367000635" aria-label="Chat on WhatsApp" class="fab fixed bottom-24 lg:bottom-5 right-4 sm:right-5 z-50 w-14 h-14 rounded-full bg-violet-600 text-white grid place-items-center"><svg class="w-7 h-7"><use href="#chat"/></svg></a>
 
 <script>
 const API_URL="https://vishal-car-rental-backend.vercel.app",WA="916367000635",FILE=location.protocol==="file:";
@@ -60,6 +61,8 @@ const slugify=t=>String(t||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(
 const carURL=c=>FILE?`car.html?slug=${slugify(c.name)}`:`/cars/${slugify(c.name)}`;
 const kmText=k=>/km/i.test(k)?`${k} included`:`${k} km/day included`;
 const $=id=>document.getElementById(id);
+const ICONS={gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>',check:'<path d="M5 12l4.5 4.5L19 7"/>',sparkle:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>',left:'<path d="M15 6l-6 6 6 6"/>',right:'<path d="M9 6l6 6-6 6"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/>'};
+const ic=(n,c="w-5 h-5")=>`<svg class="${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]||""}</svg>`;
 if(FILE)document.querySelectorAll('a[href^="/"]').forEach(a=>a.href="index.html"+a.getAttribute("href").slice(1));
 const m=location.pathname.match(/\/cars\/([^\/?#]+)/);
 const SLUG=decodeURIComponent(m?m[1]:new URLSearchParams(location.search).get("slug")||"");
@@ -86,38 +89,40 @@ function render(c,all){
   const others=[...all.filter(o=>o.id!==c.id&&c.category&&o.category===c.category),...all.filter(o=>o.id!==c.id&&(!c.category||o.category!==c.category))].slice(0,3);
   const priceTxt=hasP?`${money(price)}/day`:"Call for price";
   $("view").innerHTML=`
-  <div class="up grid lg:grid-cols-5 gap-6 items-start">
-   <div class="lg:col-span-3 space-y-4">
-    <div class="relative rounded-2xl border border-white/10 bg-card p-4">
-     <div class="absolute z-10 left-7 top-7 right-7 flex justify-between"><span class="rounded-full border border-white/20 bg-navy/80 backdrop-blur px-3 py-1 text-sm font-semibold">${esc(c.category||"Car")}</span><span class="rounded-full bg-violet-600 px-3 py-1 text-sm font-bold">${priceTxt}</span></div>
-     <div class="zoom relative overflow-hidden rounded-xl bg-gradient-to-br from-[#2A1F4A] to-[#0F0A1C] aspect-[16/10]">
+  <div class="up grid grid-cols-1 lg:grid-cols-5 gap-5 sm:gap-6 items-start">
+   <div class="min-w-0 lg:col-span-3 space-y-3 sm:space-y-4">
+    <div class="relative rounded-2xl border border-white/10 bg-card p-2.5 sm:p-4">
+     <div class="absolute z-10 left-5 top-5 right-5 sm:left-7 sm:top-7 sm:right-7 flex justify-between gap-2"><span class="rounded-full border border-white/20 bg-navy/80 backdrop-blur px-3 py-1 text-xs sm:text-sm font-semibold truncate">${esc(c.category||"Car")}</span><span class="rounded-full bg-violet-600 px-3 py-1 text-xs sm:text-sm font-bold whitespace-nowrap">${priceTxt}</span></div>
+     <div class="zoom relative overflow-hidden rounded-xl bg-gradient-to-br from-[#2A1F4A] to-[#0F0A1C] aspect-[4/3] sm:aspect-[16/10]">
       <img id="big" src="${esc(imgs[0]||"https://placehold.co/1200x750")}" alt="${name} self drive rental in Kota" class="w-full h-full object-cover" fetchpriority="high" onerror="this.onerror=null;this.src='https://placehold.co/1200x750'">
-      ${imgs.length>1?`<button id="pv" aria-label="Previous image" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy/80 hover:bg-violet-600 transition">‹</button><button id="nx" aria-label="Next image" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy/80 hover:bg-violet-600 transition">›</button>`:""}</div></div>
-    ${imgs.length>1?`<div class="flex gap-3 overflow-x-auto pb-1">${imgs.map((u,i)=>`<button type="button" data-i="${i}" aria-label="Show image ${i+1}" class="th ${i?"":"on"} shrink-0 w-28 h-20 rounded-xl overflow-hidden border border-white/10 bg-card p-1"><img src="${esc(u)}" alt="${name} photo ${i+1}" loading="lazy" class="w-full h-full object-cover rounded-lg"></button>`).join("")}</div>`:""}
-    <div class="rounded-2xl border border-white/10 bg-card p-5 flex gap-3"><span class="text-gold text-3xl leading-none">“</span><div><p class="font-bold italic">${brand} ${name} Specifications</p><p class="italic text-steel">Available for self-drive across Kota, Jaipur, Udaipur, Bundi and all Rajasthan tours.</p></div></div>
+      ${imgs.length>1?`<button id="pv" aria-label="Previous image" class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 grid place-items-center w-10 h-10 rounded-full bg-navy/80 hover:bg-violet-600 transition">${ic("left")}</button><button id="nx" aria-label="Next image" class="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 grid place-items-center w-10 h-10 rounded-full bg-navy/80 hover:bg-violet-600 transition">${ic("right")}</button>`:""}</div></div>
+    ${imgs.length>1?`<div class="noscroll flex gap-2 sm:gap-3 overflow-x-auto max-w-full pb-1">${imgs.map((u,i)=>`<button type="button" data-i="${i}" aria-label="Show image ${i+1}" class="th ${i?"":"on"} shrink-0 w-20 h-14 sm:w-28 sm:h-20 rounded-xl overflow-hidden border border-white/10 bg-card p-1"><img src="${esc(u)}" alt="${name} photo ${i+1}" loading="lazy" class="w-full h-full object-cover rounded-lg"></button>`).join("")}</div>`:""}
+    <div class="rounded-2xl border border-white/10 bg-card p-4 sm:p-5 flex gap-3"><span class="text-gold text-3xl leading-none">“</span><div class="min-w-0"><p class="font-bold italic">${brand} ${name} Specifications</p><p class="italic text-steel text-sm sm:text-base">Available for self-drive across Kota, Jaipur, Udaipur, Bundi and all Rajasthan tours.</p></div></div>
    </div>
-   <aside class="lg:col-span-2 lg:sticky lg:top-24 rounded-2xl border border-white/10 bg-card p-7">
+   <aside class="min-w-0 lg:col-span-2 lg:sticky lg:top-24 rounded-2xl border border-white/10 bg-card p-5 sm:p-7">
     <p class="text-sm font-bold tracking-wider text-gold uppercase">${brand}</p>
-    <h1 class="mt-1 text-4xl sm:text-5xl font-extrabold">${name}</h1>
+    <h1 class="mt-1 text-3xl sm:text-5xl font-extrabold break-words">${name}</h1>
     ${c.ex_showroom_price?`<p class="mt-2 text-sm text-steel">Ex-Showroom Reference: ${esc(c.ex_showroom_price)}</p>`:""}
     ${c.km_included?`<p class="mt-1 text-sm font-semibold text-emerald-400">${esc(kmText(c.km_included))}</p>`:""}
-    <div class="mt-5 grid grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-navy/60 py-4 text-center text-xs text-steel"><div>SEATS<p class="mt-1 text-sm font-bold text-white">${seats}</p></div><div>MILEAGE<p class="mt-1 text-sm font-bold text-white">${mil}</p></div><div class="px-1">GEAR<p class="mt-1 text-sm font-bold text-white">${gear}</p></div></div>
+    <div class="mt-5 grid grid-cols-3 divide-x divide-white/10 rounded-xl border border-white/10 bg-navy/60 py-4 text-center text-xs text-steel"><div class="min-w-0 px-1">SEATS<p class="mt-1 text-sm font-bold text-white break-words">${seats}</p></div><div class="min-w-0 px-1">MILEAGE<p class="mt-1 text-sm font-bold text-white break-words">${mil}</p></div><div class="min-w-0 px-1">GEAR<p class="mt-1 text-sm font-bold text-white break-words">${gear}</p></div></div>
     ${c.description?`<p class="mt-5 text-sm text-steel leading-relaxed">${esc(c.description)}</p>`:""}
-    ${c.km_included?`<p class="mt-5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 py-3 text-center text-sm font-semibold text-emerald-400">Rental rate: ${esc(kmText(c.km_included))}</p>`:""}
-    <a target="_blank" rel="noopener noreferrer" href="https://wa.me/${WA}?text=${msg}" class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 py-4 font-bold hover:brightness-110 transition shadow-lg shadow-violet-700/40"><svg class="w-5 h-5"><use href="#chat"/></svg>Book on WhatsApp Now${hasP?` (${money(price)}/day)`:""}</a>
-    <a href="tel:+916367000635" class="mt-3 flex items-center justify-center rounded-xl border border-white/15 bg-navy/60 py-3 text-sm font-semibold hover:border-violet-400 transition">Call: +91 63670 00635</a>
+    ${c.km_included?`<p class="mt-5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 py-3 px-3 text-center text-sm font-semibold text-emerald-400">Rental rate: ${esc(kmText(c.km_included))}</p>`:""}
+    <a target="_blank" rel="noopener noreferrer" href="https://wa.me/${WA}?text=${msg}" class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-4 text-center font-bold hover:brightness-110 transition shadow-lg shadow-violet-700/40"><svg class="w-5 h-5 shrink-0"><use href="#chat"/></svg><span>Book on WhatsApp Now${hasP?` (${money(price)}/day)`:""}</span></a>
+    <a href="tel:+916367000635" class="mt-3 flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-navy/60 py-3 text-sm font-semibold hover:border-violet-400 transition">${ic("phone","w-4 h-4")}Call: +91 63670 00635</a>
    </aside>
   </div>
-  ${specs.length?`<section class="mt-8 rounded-2xl border border-white/10 bg-card p-6 md:p-8"><h2 class="text-2xl font-bold flex items-center gap-2"><span class="text-gold">⚙</span>Technical Specifications</h2><div class="mt-5 grid md:grid-cols-2 gap-3">${specs.map(r=>`<div class="flex justify-between gap-4 rounded-xl border border-white/10 bg-navy/60 px-4 py-3 text-sm"><span class="text-steel">${r[0]}</span><b class="text-right">${esc(r[1])}</b></div>`).join("")}</div>${c.description?`<div class="mt-6 border-t border-white/10 pt-5 space-y-3 text-steel text-sm leading-relaxed">${String(c.description).split(/\n+/).map(p=>`<p>${esc(p)}</p>`).join("")}</div>`:""}</section>`:""}
-  ${feats.length?`<section class="mt-8 rounded-2xl border border-white/10 bg-card p-6 md:p-8"><h2 class="text-2xl font-bold flex items-center gap-2"><span class="text-gold">🛡</span>Safety & Comfort Features</h2><ul class="mt-5 grid md:grid-cols-2 gap-3">${feats.map(f=>`<li class="flex items-center gap-3 rounded-xl border border-white/10 bg-navy/60 px-4 py-3 text-sm"><span class="text-emerald-400">✓</span>${esc(f)}</li>`).join("")}</ul>
-   <div class="mt-5 rounded-xl border border-gold/40 bg-violet-600/10 p-4"><p class="font-bold text-gold text-sm">✦ Vishal Car Rental Guarantee</p><p class="mt-1 text-sm text-steel">${esc(c.guarantee||"All vehicles undergo a multi-point safety inspection, oil checks, AC performance verification and deep sanitization before handover.")}</p></div>
+  ${specs.length?`<section class="mt-8 rounded-2xl border border-white/10 bg-card p-4 sm:p-6 md:p-8"><h2 class="text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="text-gold">${ic("gear","w-6 h-6")}</span>Technical Specifications</h2><div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">${specs.map(r=>`<div class="flex justify-between gap-4 rounded-xl border border-white/10 bg-navy/60 px-4 py-3 text-sm"><span class="text-steel shrink-0">${r[0]}</span><b class="text-right min-w-0 break-words">${esc(r[1])}</b></div>`).join("")}</div>${c.description?`<div class="mt-6 border-t border-white/10 pt-5 space-y-3 text-steel text-sm leading-relaxed">${String(c.description).split(/\n+/).map(p=>`<p>${esc(p)}</p>`).join("")}</div>`:""}</section>`:""}
+  ${feats.length?`<section class="mt-8 rounded-2xl border border-white/10 bg-card p-4 sm:p-6 md:p-8"><h2 class="text-xl sm:text-2xl font-bold flex items-center gap-2"><span class="text-gold">${ic("shield","w-6 h-6")}</span>Safety & Comfort Features</h2><ul class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">${feats.map(f=>`<li class="flex items-center gap-3 rounded-xl border border-white/10 bg-navy/60 px-4 py-3 text-sm"><span class="text-emerald-400 shrink-0">${ic("check","w-4 h-4")}</span><span class="min-w-0 break-words">${esc(f)}</span></li>`).join("")}</ul>
+   <div class="mt-5 rounded-xl border border-gold/40 bg-violet-600/10 p-4"><p class="font-bold text-gold text-sm flex items-center gap-2">${ic("sparkle","w-4 h-4")}Vishal Car Rental Guarantee</p><p class="mt-1 text-sm text-steel">${esc(c.guarantee||"All vehicles undergo a multi-point safety inspection, oil checks, AC performance verification and deep sanitization before handover.")}</p></div>
    ${c.competitors?`<p class="mt-4 text-sm text-steel">Compare with: <span class="text-white">${esc(c.competitors)}</span></p>`:""}</section>`:""}
-  ${others.length?`<section class="mt-12 border-t border-white/10 pt-10"><h2 class="text-3xl font-extrabold">Other Cars You Might Like</h2><div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">${others.map(o=>{const p=Number(o.price);return `<a href="${carURL(o)}" class="card block rounded-2xl border border-white/10 bg-card p-5"><p class="text-xs font-bold tracking-wider text-gold uppercase">${esc(o.category||"Car")}</p><h3 class="text-xl font-extrabold">${esc(o.name)}</h3><p class="text-sm text-steel">${esc(o.brand||"")}</p><div class="my-3 h-40 overflow-hidden rounded-xl bg-gradient-to-br from-[#2A1F4A] to-[#0F0A1C]"><img src="${esc(o.main_image||o.image_url||"https://placehold.co/600x400")}" alt="${esc(o.name)} rental in Kota" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400'"></div><p class="font-display text-xl font-extrabold text-gold">${Number.isFinite(p)?money(p)+"/day":"Call for price"}</p></a>`}).join("")}</div></section>`:""}`;
-  const bar=$("bar");bar.classList.remove("hidden");bar.innerHTML=`<div><p class="text-xs text-steel">${name}</p><p class="font-display text-xl font-extrabold text-gold">${priceTxt}</p></div><a target="_blank" rel="noopener noreferrer" href="https://wa.me/${WA}?text=${msg}" class="rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-3 font-bold">Book Now</a>`;
+  ${others.length?`<section class="mt-10 sm:mt-12 border-t border-white/10 pt-8 sm:pt-10"><h2 class="text-2xl sm:text-3xl font-extrabold">Other Cars You Might Like</h2><div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">${others.map(o=>{const p=Number(o.price);return `<a href="${carURL(o)}" class="card block min-w-0 rounded-2xl border border-white/10 bg-card p-4 sm:p-5"><p class="text-xs font-bold tracking-wider text-gold uppercase">${esc(o.category||"Car")}</p><h3 class="text-xl font-extrabold">${esc(o.name)}</h3><p class="text-sm text-steel">${esc(o.brand||"")}</p><div class="my-3 h-40 overflow-hidden rounded-xl bg-gradient-to-br from-[#2A1F4A] to-[#0F0A1C]"><img src="${esc(o.main_image||o.image_url||"https://placehold.co/600x400")}" alt="${esc(o.name)} rental in Kota" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400'"></div><p class="font-display text-xl font-extrabold text-gold">${Number.isFinite(p)?money(p)+"/day":"Call for price"}</p></a>`}).join("")}</div></section>`:""}`;
+  const bar=$("bar");bar.classList.remove("hidden");bar.innerHTML=`<div class="min-w-0"><p class="text-xs text-steel truncate">${name}</p><p class="font-display text-xl font-extrabold text-gold">${priceTxt}</p></div><a target="_blank" rel="noopener noreferrer" href="https://wa.me/${WA}?text=${msg}" class="shrink-0 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-3 font-bold">Book Now</a>`;
   let cur=0;const big=$("big"),ths=[...document.querySelectorAll(".th")];
   const show=i=>{cur=(i+imgs.length)%imgs.length;big.src=imgs[cur];ths.forEach((t,k)=>t.classList.toggle("on",k===cur))};
   ths.forEach(t=>t.onclick=()=>show(+t.dataset.i));
   if($("pv")){$("pv").onclick=()=>show(cur-1);$("nx").onclick=()=>show(cur+1)}
+  let sx=0;big.addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});
+  big.addEventListener("touchend",e=>{const d=e.changedTouches[0].clientX-sx;if(imgs.length>1&&Math.abs(d)>50)show(cur+(d<0?1:-1))});
 }
 
 async function init(){
@@ -125,7 +130,7 @@ async function init(){
     const r=await fetch(`${API_URL}/api/cars`);if(!r.ok)throw new Error(r.status);
     const all=(await r.json()).cars||[];
     const c=all.find(x=>slugify(x.name)===SLUG||String(x.id)===SLUG);
-    if(!c){$("crumb").textContent="Not found";document.title="Car not found | Vishal Car Rental";$("view").innerHTML=`<div class="rounded-2xl border border-white/10 bg-card p-10 text-center"><h1 class="text-3xl font-extrabold">This car is not available</h1><p class="mt-2 text-steel">It may have been booked or removed. Please browse our other cars.</p><a href="/#fleet" class="mt-6 inline-block rounded-xl bg-violet-600 px-6 py-3 font-bold">View all cars</a></div>`;if(FILE)document.querySelectorAll('#view a[href^="/"]').forEach(a=>a.href="index.html"+a.getAttribute("href").slice(1));return}
+    if(!c){$("crumb").textContent="Not found";document.title="Car not found | Vishal Car Rental";$("view").innerHTML=`<div class="rounded-2xl border border-white/10 bg-card p-8 sm:p-10 text-center"><h1 class="text-2xl sm:text-3xl font-extrabold">This car is not available</h1><p class="mt-2 text-steel">It may have been booked or removed. Please browse our other cars.</p><a href="/#fleet" class="mt-6 inline-block rounded-xl bg-violet-600 px-6 py-3 font-bold">View all cars</a></div>`;if(FILE)document.querySelectorAll('#view a[href^="/"]').forEach(a=>a.href="index.html"+a.getAttribute("href").slice(1));return}
     render(c,all);
   }catch(e){console.error(e);$("view").innerHTML='<p class="text-red-400">Unable to load car details. Please try again later.</p>'}
 }

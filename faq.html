@@ -33,7 +33,7 @@ list.innerHTML=r.length?r.map((f,i)=>`<details class="rounded-xl border border-w
 const tabsDraw=()=>{const c=["All",...new Set(F.map(f=>f.category).filter(Boolean))];tabs.innerHTML=c.map(x=>`<button type="button" data-c="${esc(x)}" class="tab ${x===cat?"on":""} rounded-lg px-4 py-2 text-sm font-semibold text-steel">${esc(x)}</button>`).join("")};
 tabs.onclick=e=>{const b=e.target.closest("[data-c]");if(b){cat=b.dataset.c;tabsDraw();draw()}};qi.oninput=draw;
 api("/api/faqs").then(d=>{F=d.faqs||[];if(!F.length){list.innerHTML='<p class="text-steel">FAQs will appear here soon. Meanwhile, message us on WhatsApp.</p>';return}
-tabsDraw();draw();seo({title:document.title,desc:document.querySelector('meta[name=description]').content,url:location.href.split("?")[0],ld:{"@context":"https://schema.org","@type":"FAQPage",mainEntity:F.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))}})}).catch(()=>list.innerHTML='<p class="text-red-400">Unable to load FAQs. Please try again later.</p>');
+tabsDraw();draw();seo({title:document.title,desc:document.querySelector('meta[name=description]').content,url:location.href.split("?")[0],ld:{"@context":"https://schema.org","@type":"FAQPage",mainEntity:F.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))}})}).catch(e=>{console.error(e);list.innerHTML='<p class="text-red-400">Unable to load FAQs ('+esc(e.message)+'). Please try again later.</p>'});
 reveal();
 </script>
 </body>
