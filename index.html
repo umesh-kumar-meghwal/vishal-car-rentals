@@ -1,86 +1,423 @@
 <!DOCTYPE html>
 <html lang="en-IN">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vishal Car Rental & Tour and Travels Kota | Self Drive, Taxi & Tour
-      Packages</title>
-    <meta name="description"
-      content="Vishal Car Rental & Tour and Travels, Kota, Rajasthan. Self drive cars, Best Car rent in Kota ,  Best tour Car in Kota ,chauffeur-driven taxis, Top Car rental in  Kota, outstation cabs and Rajasthan tour packages with doorstep delivery and transparent pricing. Call 6367000635.">
-    <meta name="keywords"
-      content="car rental in Kota, self drive car Kota, taxi service Kota, Kota to Jaipur taxi, Kota to Udaipur cab, Rajasthan tour packages, Vishal Car Rental">
+
+    <!-- SEO TITLE -->
+    <title>Vishal Car Rental & Tour and Travels Kota | Self Drive, Taxi & Tour Packages</title>
+
+    <!-- SEO DESCRIPTION -->
+    <meta name="description" content="Vishal Car Rental & Tour and Travels, Kota, Rajasthan. Self drive cars, best car rental in Kota, chauffeur-driven taxis, outstation cabs and Rajasthan tour packages with doorstep delivery and transparent pricing. Call 6367000635.">
+
+    <meta name="keywords" content="car rental in Kota, self drive car Kota, taxi service Kota, Kota to Jaipur taxi, Kota to Udaipur cab, Rajasthan tour packages, Vishal Car Rental">
+
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="geo.region" content="IN-RJ"><meta name="geo.placename"
-      content="Kota"><meta name="geo.position" content="25.1800;75.8300"><meta
-      name="ICBM" content="25.1800, 75.8300">
+
+    <meta name="author" content="Vishal Car Rental">
+    <meta name="application-name" content="Vishal Car Rental">
+
+    <!-- GOOGLE SITE NAME -->
+    <meta property="og:site_name" content="Vishal Car Rental">
+
+    <!-- LOCATION -->
+    <meta name="geo.region" content="IN-RJ">
+    <meta name="geo.placename" content="Kota">
+    <meta name="geo.position" content="25.1800;75.8300">
+    <meta name="ICBM" content="25.1800,75.8300">
+
+    <!-- CANONICAL URL -->
     <link rel="canonical" href="https://vishalcarrentalkota.netlify.app/">
-    <meta prollperty="og:type" content="website"><meta property="og:locale"
-      content="en_IN">
-    <meta property="og:title"
-      content="Vishal Car Rental & Tour and Travels, Kota">
-    <meta property="og:description"
-      content="Self drive cars, chauffeur-driven taxis and Rajasthan tours from Kota. Book in minutes on WhatsApp.">
-    <meta property="og:url"
-      content="https://vishalcarrentalkota.netlify.app/"><meta
-      property="og:image"
-      content="https://vishalcarrentalkota.netlify.app/images/hero-img.png">
-    <meta name="twitter:card" content="summary_large_image"><meta
-      name="theme-color" content="#0B0714">
-    <link rel="icon"
-      href="images/logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link
-      rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+
+    <meta property="og:title" content="Vishal Car Rental & Tour and Travels, Kota">
+
+    <meta property="og:description" content="Self drive cars, chauffeur-driven taxis and Rajasthan tours from Kota. Book in minutes on WhatsApp.">
+
+    <meta property="og:url" content="https://vishalcarrentalkota.netlify.app/">
+
+    <meta property="og:image" content="https://vishalcarrentalkota.netlify.app/images/hero-img.png">
+
+    <meta property="og:image:alt" content="Vishal Car Rental Kota">
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vishal Car Rental Kota">
+    <meta name="twitter:description" content="Self drive cars, taxi services and Rajasthan tour packages in Kota.">
+    <meta name="twitter:image" content="https://vishalcarrentalkota.netlify.app/images/hero-img.png">
+
+    <!-- THEME -->
+    <meta name="theme-color" content="#0B0714">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="https://vishalcarrentalkota.netlify.app/images/logo.png">
+    <link rel="apple-touch-icon" href="https://vishalcarrentalkota.netlify.app/images/logo.png">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script src="cursor-theme.js" defer></script>
+    <!-- CUSTOM CURSOR -->
+    <script src="/cursor-theme.js" defer></script>
 
+    <!-- TAILWIND CONFIG -->
     <script>
-tailwind.config={theme:{extend:{colors:{navy:'#0B0714',gold:'#A78BFA',snow:'#100A1D',steel:'#B3A8D1',card:'#150E26'},fontFamily:{display:['Manrope','sans-serif'],body:['Inter','sans-serif']}}}}
-</script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0B0714',
+                        gold: '#A78BFA',
+                        snow: '#100A1D',
+                        steel: '#B3A8D1',
+                        card: '#150E26'
+                    },
+                    fontFamily: {
+                        display: ['Manrope', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- EXISTING WEBSITE STYLES -->
     <style>
-html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;color:#F3EEFF;color-scheme:dark}input,select,textarea{color-scheme:dark}
-h1,h2,h3,.font-display{font-family:Manrope,sans-serif;letter-spacing:-.02em}
-@keyframes drive{0%{transform:translateX(-30vw)}100%{transform:translateX(110vw)}}
-@keyframes dash{to{background-position:-80px 0}}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes marquee{to{transform:translateX(-50%)}}
-@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-@keyframes ring{0%{box-shadow:0 0 0 0 rgba(139,92,246,.6)}100%{box-shadow:0 0 0 18px rgba(139,92,246,0)}}
-@keyframes shine{to{background-position:-200% 0}}
-.car{animation:drive 10s linear infinite}.car svg{animation:bob .5s ease-in-out infinite}
-.road{background:repeating-linear-gradient(90deg,#A78BFA 0 40px,transparent 40px 80px) center/80px 3px no-repeat;animation:dash .7s linear infinite}
-.marquee{animation:marquee 35s linear infinite}.marquee:hover{animation-play-state:paused}
-.hero-in>*{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
-.hero-in>*:nth-child(2){animation-delay:.12s}.hero-in>*:nth-child(3){animation-delay:.24s}.hero-in>*:nth-child(4){animation-delay:.36s}.hero-in>*:nth-child(5){animation-delay:.48s}
-.fl1{animation:float 4s ease-in-out infinite}.fl2{animation:float 5s ease-in-out infinite .8s}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.on{opacity:1;transform:none}
-.fab{animation:ring 2.2s infinite}
-.card{transition:transform .35s,box-shadow .35s,border-color .35s}.card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(124,58,237,.55);border-color:#8B5CF6}
-.carimg{transition:transform .5s}.card:hover .carimg{transform:scale(1.07)}
-.sk{background:linear-gradient(90deg,#150E26 25%,#241A3F 50%,#150E26 75%);background-size:200% 100%;animation:shine 1.4s linear infinite}
-.tab.on{background:#7C3AED;color:#fff}
-.inp{width:100%;border-radius:.6rem;border:1px solid rgba(255,255,255,.15);background:#0F0A1C;color:#fff;padding:.75rem 1rem;font-size:.9rem}.inp::placeholder{color:#8277a3}
-details summary{list-style:none;cursor:pointer}details summary::-webkit-details-marker{display:none}
-details[open] .plus{transform:rotate(45deg)}.plus{transition:transform .3s}
-details[open]>div{animation:rise .4s both}
-:focus-visible{outline:3px solid #A78BFA;outline-offset:3px}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.hero-in>*{opacity:1;transform:none}}
-</style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, sans-serif;
+            color: #F3EEFF;
+            color-scheme: dark;
+        }
+
+        input, select, textarea {
+            color-scheme: dark;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: Manrope, sans-serif;
+            letter-spacing: -.02em;
+        }
+
+        @keyframes drive {
+            0% { transform: translateX(-30vw); }
+            100% { transform: translateX(110vw); }
+        }
+
+        @keyframes dash {
+            to { background-position: -80px 0; }
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes marquee {
+            to { transform: translateX(-50%); }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(139,92,246,.6);
+            }
+            100% {
+                box-shadow: 0 0 0 18px rgba(139,92,246,0);
+            }
+        }
+
+        @keyframes shine {
+            to { background-position: -200% 0; }
+        }
+
+        .car {
+            animation: drive 10s linear infinite;
+        }
+
+        .car svg {
+            animation: bob .5s ease-in-out infinite;
+        }
+
+        .road {
+            background: repeating-linear-gradient(
+                90deg,
+                #A78BFA 0 40px,
+                transparent 40px 80px
+            ) center/80px 3px no-repeat;
+            animation: dash .7s linear infinite;
+        }
+
+        .marquee {
+            animation: marquee 35s linear infinite;
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .hero-in > * {
+            opacity: 0;
+            animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards;
+        }
+
+        .hero-in > *:nth-child(2) {
+            animation-delay: .12s;
+        }
+
+        .hero-in > *:nth-child(3) {
+            animation-delay: .24s;
+        }
+
+        .hero-in > *:nth-child(4) {
+            animation-delay: .36s;
+        }
+
+        .hero-in > *:nth-child(5) {
+            animation-delay: .48s;
+        }
+
+        .fl1 {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .fl2 {
+            animation: float 5s ease-in-out infinite .8s;
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s, transform .7s;
+        }
+
+        .rv.on {
+            opacity: 1;
+            transform: none;
+        }
+
+        .fab {
+            animation: ring 2.2s infinite;
+        }
+
+        .card {
+            transition: transform .35s, box-shadow .35s, border-color .35s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 50px -20px rgba(124,58,237,.55);
+            border-color: #8B5CF6;
+        }
+
+        .carimg {
+            transition: transform .5s;
+        }
+
+        .card:hover .carimg {
+            transform: scale(1.07);
+        }
+
+        .sk {
+            background: linear-gradient(
+                90deg,
+                #150E26 25%,
+                #241A3F 50%,
+                #150E26 75%
+            );
+            background-size: 200% 100%;
+            animation: shine 1.4s linear infinite;
+        }
+
+        .tab.on {
+            background: #7C3AED;
+            color: #fff;
+        }
+
+        .inp {
+            width: 100%;
+            border-radius: .6rem;
+            border: 1px solid rgba(255,255,255,.15);
+            background: #0F0A1C;
+            color: #fff;
+            padding: .75rem 1rem;
+            font-size: .9rem;
+        }
+
+        .inp::placeholder {
+            color: #8277a3;
+        }
+
+        details summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] .plus {
+            transform: rotate(45deg);
+        }
+
+        .plus {
+            transition: transform .3s;
+        }
+
+        details[open] > div {
+            animation: rise .4s both;
+        }
+
+        :focus-visible {
+            outline: 3px solid #A78BFA;
+            outline-offset: 3px;
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .rv, .hero-in > * {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+
+    <!-- STRUCTURED DATA / GOOGLE SITE NAME -->
     <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":["AutoRental","LocalBusiness"],"@id":"https://www.YOURDOMAIN.in/#business","name":"Vishal Car Rental & Tour and Travels","url":"https://www.YOURDOMAIN.in/","telephone":"+91-6367000635","image":"https://www.YOURDOMAIN.in/og-image.jpg","priceRange":"₹₹","address":{"@type":"PostalAddress","streetAddress":"232, Sector 7, Keshavpura, Mahaveer Nagar","addressLocality":"Kota","addressRegion":"Rajasthan","postalCode":"324005","addressCountry":"IN"},"areaServed":["Kota","Jaipur","Udaipur","Bundi","Chittorgarh","Ranthambore","Jodhpur","Rajasthan"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}},
-{"@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"How do I book a self drive car in Kota?","acceptedAnswer":{"@type":"Answer","text":"Choose a car, click Book now or message 6367000635 on WhatsApp. After a quick document check, the car is delivered to your doorstep."}},
-{"@type":"Question","name":"What documents are required to rent a car?","acceptedAnswer":{"@type":"Answer","text":"A valid driving licence and one government ID proof such as Aadhaar, Passport or Voter ID."}},
-{"@type":"Question","name":"Do you provide taxis with a driver for outstation trips?","acceptedAnswer":{"@type":"Answer","text":"Yes. Chauffeur-driven taxis are available from Kota to Jaipur, Udaipur, Bundi, Ranthambore, Jodhpur and across Rajasthan."}},
-{"@type":"Question","name":"Is delivery available at the railway station or bus stand?","acceptedAnswer":{"@type":"Answer","text":"Yes. We deliver to Kota Junction, the bus stand and any address within Kota."}}]}]}
-</script>
-    <script>document.write('<script src="'+(location.protocol==="file:"?"":"/")+'site.js"><\/script>')</script>
-  </head>
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://vishalcarrentalkota.netlify.app/#website",
+                "name": "Vishal Car Rental",
+                "alternateName": "Vishal Car Rental Kota",
+                "url": "https://vishalcarrentalkota.netlify.app/"
+            },
+            {
+                "@type": ["AutoRental", "LocalBusiness"],
+                "@id": "https://vishalcarrentalkota.netlify.app/#business",
+                "name": "Vishal Car Rental & Tour and Travels",
+                "url": "https://vishalcarrentalkota.netlify.app/",
+                "telephone": "+91-6367000635",
+                "image": "https://vishalcarrentalkota.netlify.app/images/hero-img.png",
+                "priceRange": "₹₹",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "232, Sector 7, Keshavpura, Mahaveer Nagar",
+                    "addressLocality": "Kota",
+                    "addressRegion": "Rajasthan",
+                    "postalCode": "324005",
+                    "addressCountry": "IN"
+                },
+                "areaServed": [
+                    "Kota",
+                    "Jaipur",
+                    "Udaipur",
+                    "Bundi",
+                    "Chittorgarh",
+                    "Ranthambore",
+                    "Jodhpur",
+                    "Rajasthan"
+                ],
+                "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                        "Sunday"
+                    ],
+                    "opens": "00:00",
+                    "closes": "23:59"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How do I book a self drive car in Kota?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Choose a car, click Book now or message 6367000635 on WhatsApp. After a quick document check, the car is delivered to your doorstep."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What documents are required to rent a car?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A valid driving licence and one government ID proof such as Aadhaar, Passport or Voter ID."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do you provide taxis with a driver for outstation trips?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Chauffeur-driven taxis are available from Kota to Jaipur, Udaipur, Bundi, Ranthambore, Jodhpur and across Rajasthan."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is delivery available at the railway station or bus stand?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. We deliver to Kota Junction, the bus stand and any address within Kota."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <!-- WEBSITE SCRIPT -->
+    <script>
+        document.write(
+            '<script src="/site.js"><\/script>'
+        );
+    </script>
+
+</head>
+
+
   <body data-page="home" class="bg-navy text-white antialiased">
 
     <svg width="0" height="0" class="absolute" aria-hidden="true"><defs>

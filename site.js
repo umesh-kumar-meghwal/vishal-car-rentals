@@ -556,8 +556,9 @@
             </div>
 
             <p class="max-w-7xl mx-auto px-6 mt-10 pt-5 border-t border-white/10 text-xs text-steel">
-                © 2026 Vishal Car Rental & Tour and Travels, Kota. All rights reserved.
+                © 2026 Vishal Car Rental & Tour and Travels, Kota. All rights reserved. <span>Developed By</span> <a class="text-gold" href="https://webshaktii.netlify.app/">Web Shakti Kota</a>
             </p>
+            
         </footer>
     `;
 
